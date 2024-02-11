@@ -1,0 +1,93 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="registration.css">      
+    <title>Registration</title>
+</head>
+<body>
+    <div class="form">
+    <h1 class="title">Registration Form</h1><br><br>
+    <form>
+        First Name : <input type="text" placeholder="enter the first name" name="first-name" id="f1" required><br><br>
+        Middel Name : <input type="text" placeholder="enter the middel name" name="middel-name" id="f2" required><br><br>
+        Last Name : <input type="text" placeholder="enter the last name" name="last-name" id="f3" required><br><br>
+        Address : <input type="text" placeholder="enter the address" name="address" id="add" required><br><br>
+        Email : <input type="text" id="email" placeholder="enter email address"><br><br>
+        Gender : 
+        <input type="radio" name="Gender" id="gen2" value="male">male
+        <input type="radio" name="Gender" id="gen1" value="female">female 
+        <input type="radio" name="Gender" id="gen3" value="other">other<br><br>
+        <label for="inputstate">State</label>
+            <select required>
+            <option selected>State</option>
+            <option>Gujarat</option>
+            <option>Kolkata</option>
+            <option>Bengaluru</option>
+            <option>Goa</option>
+            <option>Maharashtra</option>
+            </select>
+        <label for="inputcountry">Country</label>
+                <select required>
+                <option selected>Country</option>
+                <option>India</option>
+                <option>UK</option>
+                <option>USA</option>
+                <option>Australia</option>
+                <option>China</option>
+                </select>
+        <label for="inputcountry">City</label>
+                <select required>
+                <option selected>City</option>
+                <option>Surat</option>
+                <option>Ahemdabad</option>
+                <option>Vapi</option>
+                <option>Valsad</option>
+                <option>Bharuch</option>
+                </select><br><br>
+    Date : <input type="date" required >
+    Mobile No. : <input type="text" id="phone" placeholder="mobile no."><br><br>
+    Password : <input type="password" placeholder="enter the password" name="psw" id="psw">
+    Confirm Password : <input type="password" placeholder="enter the password" id="psw1" name="password"><br><br>
+    <button style="border: 3px solid;" onclick="valid()" type="submit" class="button">Submit</button>
+    </form>
+    </div>
+    <script>
+        function valid() {
+            let phoneno = document.getElementById("phone").value;
+            let emailid = document.getElementById("email").value;
+            let a = emailid.indexOf("@");
+            let b = emailid.lastIndexOf(".");
+            let pas01 = document.getElementById("psw").value;
+            let pas02 = document.getElementById("psw1").value;
+            let man = document.getElementById("gen2");
+            let fem = document.getElementById("gen1");
+            let oth = document.getElementById("gen3");
+            if (phoneno.length != 10){
+                alert("please valid mobile number!");
+                return 0;
+            }
+            else if ( a < 1 || (b - a < 2)){
+                alert("please enter valid email!");
+                return 0;
+            }
+            else if (pas01 == null || pas01 == ""){
+                alert("please enter password!");
+                return 0;
+            }
+            else if(pas02 == null || pas02 == ""){
+                alert("please confirmed password!");
+                return 0;
+            }
+            else if (pas01 != pas02){
+                alert("please enter valid password!");
+                return 0;
+            }
+            else if ( !man.checked && !fem.checked && !oth.checked ){
+                alert("please select your gender!");
+                return 0;
+            }
+        }
+    </script>
+</body>
+</html>
